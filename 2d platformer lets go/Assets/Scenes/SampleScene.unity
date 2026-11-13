@@ -440,6 +440,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4676148139648904679, guid: 0a687fc6bf501ff4c8e1a67bc2ca9442, type: 3}
+      propertyPath: m_Radius
+      value: 0.40260518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676148139648904679, guid: 0a687fc6bf501ff4c8e1a67bc2ca9442, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0035430193
+      objectReference: {fileID: 0}
     - target: {fileID: 7387261516457959010, guid: 0a687fc6bf501ff4c8e1a67bc2ca9442, type: 3}
       propertyPath: m_Name
       value: Coin
@@ -499,6 +507,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2676039148289272431, guid: 41a7c5f25e407104b9794763ade1b9b2, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676039148289272431, guid: 41a7c5f25e407104b9794763ade1b9b2, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6551373657811672457, guid: 41a7c5f25e407104b9794763ade1b9b2, type: 3}

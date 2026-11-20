@@ -35,6 +35,18 @@ public class PlayerController : MonoBehaviour
     {
         playerRb.linearVelocity = new Vector2(moveVector.x * moveSpeed, playerRb.linearVelocity.y);
         CheckForGround();
+
+        if (moveVector.x > 0)
+        {
+            //Player is going to the right (input-wise)
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        if (moveVector.x < 0)
+        {
+            //left
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 
     void Jump()

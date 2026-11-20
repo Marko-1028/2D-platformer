@@ -4,6 +4,7 @@ public class CameraController : MonoBehaviour
 {
     Transform playerTransform;
     [SerializeField] Vector3 offset;
+    [SerializeField] float cameraMoveSpeed;
     void Start()
     {
         playerTransform = FindAnyObjectByType<PlayerController>().transform;
@@ -12,6 +13,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        transform.position = playerTransform.position + offset;
+        //transform.position = playerTransform.position + offset;
+        transform.position = Vector3.Lerp(transform.position, playerTransform.position + offset, cameraMoveSpeed);
     }
 }

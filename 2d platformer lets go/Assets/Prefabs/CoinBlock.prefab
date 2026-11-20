@@ -200,3 +200,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlockBreaker
   blockBreakerParticleEffect: {fileID: 6187319309752252500, guid: edb6a2fbd9308814f971572aa78c53ab, type: 3}
+  coin: {fileID: 7387261516457959010, guid: 0a687fc6bf501ff4c8e1a67bc2ca9442, type: 3}
+  coinBlock: 1

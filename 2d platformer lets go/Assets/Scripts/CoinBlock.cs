@@ -13,9 +13,18 @@ public class CoinBlock : MonoBehaviour
         {
             if (collision.GetComponent<Rigidbody2D>().linearVelocityY > -0.1f)
             {
-                collision.gameObject.GetComponent<Rigidbody2D>().linearVelocityY = 0;
-                Instantiate(coin, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+                if (coinBlockActive)
+                {
+                    
+                    Instantiate(coin, transform.position + new Vector3(0, 1f, 0), Quaternion.identity);
+                    coinBlockActive = false;
+                    
+                }
+
+
+
                 Instantiate(emptyBlock, transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+                collision.gameObject.GetComponent<Rigidbody2D>().linearVelocityY = 0;
                 Destroy(gameObject);
             }
         }

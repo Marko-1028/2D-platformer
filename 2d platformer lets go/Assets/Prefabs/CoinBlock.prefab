@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9143760862290801764}
   - component: {fileID: 867918025487077843}
   - component: {fileID: 410998113314710740}
-  - component: {fileID: 8901676123841670025}
+  - component: {fileID: -779149098884307948}
   m_Layer: 6
   m_Name: CoinBlock
   m_TagString: Untagged
@@ -187,7 +187,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.88, y: 0.26}
   m_EdgeRadius: 0
---- !u!114 &8901676123841670025
+--- !u!114 &-779149098884307948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,9 +196,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3160035568195821537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810a78ee6f2c57947885fd1f0f48ab9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d09b1a1893bb3a40a5df16d76cc8be3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BlockBreaker
-  blockBreakerParticleEffect: {fileID: 6187319309752252500, guid: edb6a2fbd9308814f971572aa78c53ab, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::CoinBlock
   coin: {fileID: 7387261516457959010, guid: 0a687fc6bf501ff4c8e1a67bc2ca9442, type: 3}
-  coinBlock: 1
+  coinBlock: 0
+  coinBlockActive: 1

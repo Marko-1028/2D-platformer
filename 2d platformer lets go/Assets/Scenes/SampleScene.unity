@@ -1220,6 +1220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   offset: {x: 0, y: 0, z: 0}
   cameraMoveSpeed: 0.0125
+  wantedPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &582391280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8154836655061108491, guid: 0a687fc6bf501ff4c8e1a67bc2ca9442, type: 3}

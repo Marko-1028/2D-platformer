@@ -3,6 +3,7 @@ using UnityEngine;
 public class CoinBlock : MonoBehaviour
 {
     [SerializeField] GameObject coin;
+    [SerializeField] GameObject emptyBlock;
     [SerializeField] bool coinBlock;
     [SerializeField] bool coinBlockActive;
 
@@ -12,18 +13,10 @@ public class CoinBlock : MonoBehaviour
         {
             if (collision.GetComponent<Rigidbody2D>().linearVelocityY > -0.1f)
             {
-                if (coinBlockActive)
-                {
-                    collision.gameObject.GetComponent<Rigidbody2D>().linearVelocityY = 0;
-                    Instantiate(coin, transform.position + new Vector3(0, 1f, 0), Quaternion.identity);
-                    coinBlockActive = false;
-                }
-
-
-
-
-
                 collision.gameObject.GetComponent<Rigidbody2D>().linearVelocityY = 0;
+                Instantiate(coin, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+                Instantiate(emptyBlock, transform.position + new Vector3(0, 0, 0), Quaternion.identity);
+                Destroy(gameObject);
             }
         }
     }

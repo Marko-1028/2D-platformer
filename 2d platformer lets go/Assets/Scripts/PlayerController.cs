@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Stats")]
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpForce;
-    [SerializeField] bool isGrounded;
+    public bool isGrounded;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheckPosition;
 

@@ -10,7 +10,7 @@ public class PickUp : MonoBehaviour
 
     void Update()
     {
-        coinsTextDisplay.text = coinsValue.ToString();
+        //coinsTextDisplay.text = coinsValue.ToString();
     }
     
     public void OnTriggerEnter2D(Collider2D collision)

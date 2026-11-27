@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D playerRb;
 
     bool hasIFrames;
+    
+    
     private void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -92,6 +95,10 @@ public class PlayerController : MonoBehaviour
         if(lives > 1)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        if (lives <= 0)
+        {
+            SceneManager.LoadScene("lose screen");
         }
     }
 

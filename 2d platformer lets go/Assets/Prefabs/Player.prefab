@@ -175,6 +175,7 @@ MonoBehaviour:
     m_Bits: 64
   groundCheckPosition: {fileID: 1996516899355463489}
   isDashing: 0
+  lives: 2
 --- !u!114 &1556059467111600721
 MonoBehaviour:
   m_ObjectHideFlags: 0

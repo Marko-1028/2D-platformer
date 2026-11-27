@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheckPosition;
     [SerializeField] bool isDashing;
+    [SerializeField] int lives;
 
     Vector2 moveVector;
     Rigidbody2D playerRb;
@@ -78,6 +79,22 @@ public class PlayerController : MonoBehaviour
         }
 
         Gizmos.DrawWireSphere(groundCheckPosition.position, 0.2f);
+    }
+
+    void Update()
+    {
+        if(lives < 2)
+        {
+            transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            lives -= 1;
+        }
     }
 
 

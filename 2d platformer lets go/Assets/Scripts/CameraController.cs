@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -31,4 +32,7 @@ public class CameraController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, wantedPosition + offset, cameraMoveSpeed);
 
     }
+
+    
+    
 }

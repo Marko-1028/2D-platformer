@@ -106,7 +106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0633384bbd53e6f4db0f2d1378da21fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUp
+  coinsTextDisplay: {fileID: 0}
+  coinsValue: 1
   PickUpEffect: {fileID: 4208126494901063787, guid: ad8475f88e0db834c9e04e4ccc63d03f, type: 3}
+  pickUp: 0
+  powerupMoveSpeed: 0
 --- !u!58 &4676148139648904679
 CircleCollider2D:
   m_ObjectHideFlags: 0

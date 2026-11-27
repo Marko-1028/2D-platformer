@@ -18,13 +18,19 @@ public class BlockBreaker : MonoBehaviour
                     Instantiate(coin, transform.position + new Vector3(0, 0, 0), Quaternion.identity);
                 }
 
-                Instantiate(blockBreakerParticleEffect, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+                
                 collision.gameObject.GetComponent<Rigidbody2D>().linearVelocityY = 0;
-                Destroy(gameObject);
-                if(Random.Range(1, 6) == 1)
+                if (Random.Range(1, 6) == 1)
                 {
                     Instantiate(powerup, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
                 }
+                else
+                {
+                    Destroy(gameObject);
+                    Instantiate(blockBreakerParticleEffect, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+                }
+                
+                
             }
         }
     }

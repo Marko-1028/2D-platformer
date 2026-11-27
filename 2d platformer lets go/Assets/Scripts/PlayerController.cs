@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public Transform playerTransform;
     Vector2 moveVector;
     public Rigidbody2D playerRb;
+    [SerializeField] bool doubleJump;
+    [SerializeField] int jumpTimes;
 
     bool hasIFrames;
     
@@ -31,6 +33,18 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Jump");
             Jump();
+            jumpTimes += 1;
+            if(jumpTimes < 1)
+            {
+                doubleJump = true;
+            }
+            else
+            {
+                doubleJump = false;
+            }
+
+            
+            
         }
     }
 
@@ -63,9 +77,14 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (!isGrounded) return;
+        if (!doubleJump)
+        {
+            if (!isGrounded) return;
+        }
+        
         playerRb.linearVelocityY = 0;
         playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
     }
 
     void CheckForGround()
@@ -100,6 +119,15 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("lose screen");
         }
+        if (isGrounded)
+        {
+            jumpTimes = 0;
+        }
+
+        if (jumpTimes < 1)
+        {
+            doubleJump = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -132,6 +160,12 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Dash());
         }
     }
+
+    IEnumerator doublejump()
+    {
+        yield return new WaitForSeconds(0.5f);
+        doubleJump = false;
+    }
     IEnumerator Dash()
     {
         //spelaren frysa på plats i luften
@@ -152,5 +186,21 @@ public class PlayerController : MonoBehaviour
         playerRb.gravityScale = 5;
         isDashing = false;
 
+    }
+
+    
+
+    
+
+    
+
+    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("lose"))
+        {
+            SceneManager.LoadScene("lose screen");
+        }
     }
 }

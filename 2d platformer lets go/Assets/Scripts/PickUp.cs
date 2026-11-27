@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    
     [SerializeField] TextMeshProUGUI coinsTextDisplay;
-    [SerializeField] int coinsValue = 0;
+    //[SerializeField] int coinsValue = 0;
     [SerializeField] GameObject PickUpEffect;
     [SerializeField] bool pickUp;
+    [SerializeField] float powerupMoveSpeed;
 
     PlayerController playerController;
 
@@ -15,12 +17,15 @@ public class PickUp : MonoBehaviour
     {
         playerController = FindAnyObjectByType<PlayerController>();
         
+
     }
 
 
     void Update()
     {
         //coinsTextDisplay.text = coinsValue.ToString();
+
+        
     }
     
     public void OnTriggerEnter2D(Collider2D collision)
@@ -29,13 +34,16 @@ public class PickUp : MonoBehaviour
         {
             Instantiate(PickUpEffect, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
             //coinsValue += 1;
+            
             Destroy(gameObject);
             if (pickUp)
             {
                 //Ref playercontroller
                 //add to lives vaule ++
                 playerController.lives += 1;
+                
             }
+            
         }
     }
 }

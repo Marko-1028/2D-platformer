@@ -11,10 +11,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheckPosition;
     [SerializeField] bool isDashing;
-    [SerializeField] int lives;
-
+    [SerializeField] public int lives;
+    public Transform playerTransform;
     Vector2 moveVector;
-    Rigidbody2D playerRb;
+    public Rigidbody2D playerRb;
     private void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -83,9 +83,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(lives < 2)
+        if(lives < 1)
         {
             transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+        }
+        if(lives > 1)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
 
@@ -96,6 +100,8 @@ public class PlayerController : MonoBehaviour
             lives -= 1;
         }
     }
+
+    
 
 
     public void OnDash(InputAction.CallbackContext context)

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheckPosition;
+    [SerializeField] bool isDashing;
 
     Vector2 moveVector;
     Rigidbody2D playerRb;
@@ -33,7 +35,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerRb.linearVelocity = new Vector2(moveVector.x * moveSpeed, playerRb.linearVelocity.y);
+        if(isDashing == false)
+        {
+            playerRb.linearVelocity = new Vector2(moveVector.x * moveSpeed, playerRb.linearVelocity.y);
+        }
+        
         CheckForGround();
 
         if (moveVector.x > 0)
@@ -72,5 +78,36 @@ public class PlayerController : MonoBehaviour
         }
 
         Gizmos.DrawWireSphere(groundCheckPosition.position, 0.2f);
+    }
+
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        if (context.started && isDashing == false)
+        {
+            Debug.Log("Dash");
+            StartCoroutine(Dash());
+        }
+    }
+    IEnumerator Dash()
+    {
+        //spelaren frysa på plats i luften
+        isDashing = true;
+        playerRb.linearVelocityY = 0;
+        playerRb.gravityScale = 0;
+
+        yield return new WaitForSeconds(0.1f);
+        //Dasha snabbt framåt
+        playerRb.linearVelocityX = transform.right.x * 24;
+        //Vänta en kort sekund
+        yield return new WaitForSeconds(0.1f);
+        //Sätt tillbaks gravityScale och igen nolla min velocityY
+        playerRb.linearVelocityY = 0;
+        playerRb.gravityScale = 0;
+        yield return new WaitForSeconds(0.1f);
+
+        playerRb.gravityScale = 5;
+        isDashing = false;
+
     }
 }

@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public Transform playerTransform;
     Vector2 moveVector;
     public Rigidbody2D playerRb;
+
+    bool hasIFrames;
     private void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(lives < 1)
+        if(lives < 2)
         {
             transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
         }
@@ -97,12 +99,23 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            lives -= 1;
+            if(hasIFrames == false)
+            {
+                lives -= 1;
+                hasIFrames = true;
+                StartCoroutine(RemoveIFrames());
+            }
+            
+
         }
     }
 
     
-
+    IEnumerator RemoveIFrames()
+    {
+        yield return new WaitForSeconds(1f);
+        hasIFrames = false;
+    }
 
     public void OnDash(InputAction.CallbackContext context)
     {

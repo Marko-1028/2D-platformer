@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         //Dasha snabbt framåt
         playerRb.linearVelocityX = transform.right.x * 24;
         //Vänta en kort sekund
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.075f);
         //Sätt tillbaks gravityScale och igen nolla min velocityY
         playerRb.linearVelocityY = 0;
         playerRb.gravityScale = 0;
